@@ -8,20 +8,17 @@ const ROOT= "http://localhost:8089/v1/"
 //Create factoid address  
 function createAddress(name){
     let api = `${ROOT}factoid-generate-address/${name}`
-    unirest.get(api)
-        .end(resp=>{
-            console.log(resp.);
+    fetch(api)
+        .then(resp=>{
+            return resp.json();
         })
+        .then(json=>{
+            console.log(json);
+        })
+
 }
 
-createAddress("lemonswang");
+createAddress("lemons");
 
 
-
-unirest.post(API)
-    .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-    .send({"ExtIDs":["466972737421", "7365636F6E64"], "Content":"48656C6C6F20466163746F6D21"})
-    .end(function (response) {
-        console.log(response.body);
-    });
 
